@@ -2,9 +2,9 @@
 
 #Copy one file to another with lines going in reverse order
 
- if [ "$#" != "2" ]
+ if [[ ("$#" = "2") && (-s fileinput.txt) ]]
 then
-	echo "This script only accept two arguments!"
+	cat $1 | tail -r >  $2
 else
-		cat $1 | tail -r >  $2
+	echo "We need two arguments! and a filled file!"
 fi
